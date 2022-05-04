@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Click farming node: {{ .Name }}</title>
+        <link rel="stylesheet" href="static/styles.css">
+        <script src="static/script.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+
+    <body id="body-id">
+
+<div class="row text-center">
+    <div class="col-sm- 12 jumbotron" style="background-color: #ef9a9a">
+        <h1>Click farming node: {{ .Name  }}</h1>
+    </div>
+    <div class="col-sm-12 text-center">
+        <h2>Help us farm more clicks:</h2>
+        {{ range $color := .Colors }}
+        <button id="color-label-{{ $color }}" class="color-button color-button-{{ $color }} button-56" role="button" onclick="colorClicked('{{ $color  }}')">{{ $color}}: 0</button>
+        {{ end }}
+    </div>
+
+    <img src="static/singe-monkey.gif" class="img-fluid text-center">
+
+<!--        <h2>Current click counts:</h2>-->
+<!--        <ul>-->
+<!--        {{ range $color := .Colors }}-->
+<!--        <li class="color-label" id="color-label-{{ $color }}">{{ $color }}: 0</li>-->
+<!--        {{ end }}-->
+<!--        </ul>-->
+
+
+</div>
+    </body>
+
+    <!-- HTML !-->
+
+
+
+    <style>
+
+        #body-id{
+            font-family: "Trebuchet MS";
+            background-color: #ffcccb;
+        }
+
+       .button-56 {
+
+           align-items: center;
+           border: 2px solid #111;
+           border-radius: 8px;
+           box-sizing: border-box;
+           color: #fff;
+           cursor: pointer;
+           display: flex;
+           font-family: Inter,sans-serif;
+           font-size: 16px;
+           height: 48px;
+           justify-content: center;
+           line-height: 24px;
+           max-width: 100%;
+           padding: 0 25px;
+           position: relative;
+           text-align: center;
+           text-decoration: none;
+           user-select: none;
+           -webkit-user-select: none;
+           touch-action: manipulation;
+       }
+
+        .button-56:after {
+            background-color: #111;
+            border-radius: 8px;
+            content: "";
+            display: block;
+            height: 48px;
+            left: 0;
+            width: 100%;
+            position: absolute;
+            top: -2px;
+            transform: translate(8px, 8px);
+            transition: transform .2s ease-out;
+            z-index: -1;
+        }
+
+        .button-56:hover:after {
+            transform: translate(0, 0);
+        }
+
+        .button-56:active {
+            background-color: #ffdeda;
+            outline: 0;
+        }
+
+        .button-56:hover {
+            outline: 0;
+        }
+
+        @media (min-width: 768px) {
+            .button-56 {
+                padding: 0 40px;
+            }
+        }
+    </style>
+
+</html>
